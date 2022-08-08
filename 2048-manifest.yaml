@@ -21,7 +21,7 @@ spec:
               protocol: TCP
 ---
 
-appVersion:
+appVersion: v1
 kind: Service
 metadata: 
   name: service-2048
