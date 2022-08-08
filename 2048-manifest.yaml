@@ -1,0 +1,36 @@
+appVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 
+spec:
+  selector:
+    matchlabels:
+      app: "2048"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "2048"
+    spec:
+      containers:
+        - image: ntsehebert/2048-game
+          imagePullPolicy: Always
+          name: "2048"
+          ports:
+            - containerPort: 80
+              protocol: TCP
+---
+
+appVersion:
+kind: Service
+metadata: 
+  name: service-2048
+  labels:
+    app: servicelabel
+spec:
+  type: NodePort
+  ports:
+   - port: 80
+  selector:
+    app: "2048"
+
